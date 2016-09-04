@@ -5,14 +5,10 @@ ocr=/opt/ABBYYOCR9/abbyyocr9
 
 $ocr -id \
 	--recognitionLanguage English \
-	-if "$1" \
+	-if $1 \
 	--outputFileFormat PDFA \
 	--pdfaExportMode ImageOnText \
-	-of "/data/tmp/$1.out"
-retval=$?
-if [ "$retval" -eq "0" -a -s /data/tmp/$1.out ]; then
-	mv "/data/tmp/$1.out" "$1"
-fi
+	-of $2
 
 #	--pdfaMrcMRCEnabled \
 
